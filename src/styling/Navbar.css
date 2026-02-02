@@ -1,0 +1,309 @@
+/* Navbar.css */
+
+:root {
+  --primary-orange: #f97316;
+  --bg-dark-slate: #1e293b; /* New Dark Contrast Color */
+  --bg-darker: #0f172a;
+  --text-white: #f9fafb;
+  --text-gray-light: #9ca3af;
+  --shadow-nav: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* ===========================
+   Desktop Navbar (Dark Contrast)
+   =========================== */
+.desktop-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  /* Dark Slate Background for Contrast */
+  background: var(--bg-dark-slate);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 0 32px;
+  margin: 20px 40px;
+  position: sticky;
+  top: 20px;
+  z-index: 100;
+  box-shadow: var(--shadow-nav);
+}
+
+.nav-left, .nav-right { flex: 1; }
+.nav-right { display: flex; justify-content: flex-end; }
+
+.nav-center {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  /* Slightly darker pill inside the nav */
+  background: rgba(0, 0, 0, 0.2);
+  padding: 6px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  /* Light text for dark background */
+  color: var(--text-gray-light);
+  font-size: 15px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.nav-item:hover {
+  color: var(--text-white);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.nav-item.active {
+  background: var(--primary-orange);
+  color: white;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);
+}
+
+/* User Profile */
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.profile-image {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--primary-orange);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.profile-image img { width: 100%; height: 100%; object-fit: cover; }
+
+.profile-placeholder {
+  color: white;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.user-info { display: flex; flex-direction: column; }
+.greeting { font-size: 12px; color: var(--text-gray-light); }
+.user-name { font-size: 15px; color: var(--text-white); font-weight: 700; }
+
+/* Desktop Compare Button */
+.desktop-compare-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  /* White text on dark button */
+  color: var(--text-white);
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: 0.2s;
+}
+
+.desktop-compare-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* ===========================
+   Mobile Header (Top) - Now Dark
+   =========================== */
+.mobile-header {
+  display: none; /* Hidden on desktop */
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  /* Dark Background */
+  background: var(--bg-dark-slate);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 90;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Adjust text inside mobile header */
+.mobile-header .user-name { color: white; }
+.mobile-header .greeting { color: #cbd5e1; }
+
+.mobile-compare-btn {
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.1);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  color: white; /* Icon color */
+}
+
+.badge {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  background: var(--primary-orange);
+  color: white;
+  font-size: 10px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  border: 1px solid var(--bg-dark-slate);
+}
+
+/* ===========================
+   Mobile Navbar (Bottom)
+   =========================== */
+.mobile-nav {
+  display: none;
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 200;
+  width: auto;
+  min-width: 280px;
+}
+
+.mobile-nav-content {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  align-items: center;
+  /* Pure Black for maximum contrast at bottom */
+  background: #000000;
+  border-radius: 100px;
+  padding: 6px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.35);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.mobile-nav-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 18px;
+  border-radius: 100px;
+  text-decoration: none;
+  color: #6b7280;
+  transition: all 0.3s ease;
+}
+
+.mobile-nav-label {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.mobile-nav-dot {
+  width: 0;
+  height: 6px;
+  background: var(--primary-orange);
+  border-radius: 50%;
+  transition: width 0.3s ease;
+}
+
+/* Active State Mobile */
+.mobile-nav-item.active {
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+}
+
+.mobile-nav-item.active .mobile-nav-dot {
+  width: 6px;
+  margin-right: 2px;
+}
+
+/* ===========================
+   Responsive Queries
+   =========================== */
+@media (max-width: 768px) {
+  .desktop-nav { display: none; }
+  .mobile-nav, .mobile-header { display: flex; }
+}
+.mobile-header {
+  display: none; /* Hidden on desktop */
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  
+  /* I removed background-color and border so it stays same as previous */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 50;
+  height: 64px;
+}
+
+/* User Profile (Left) */
+.mobile-profile {
+  flex: 1;
+}
+
+/* Add Property Button (Top Right) */
+.mobile-header-add-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  /* Using your primary orange */
+  background-color: var(--primary-orange, #f97316); 
+  color: #ffffff;
+  padding: 6px 14px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
+  white-space: nowrap;
+}
+
+.mobile-header-add-btn:active {
+  transform: scale(0.96);
+  opacity: 0.9;
+}
+
+.plus-icon {
+  font-size: 18px;
+  line-height: 1;
+  font-weight: 400;
+}
+
+/* Mobile Display Logic */
+@media (max-width: 768px) {
+  .desktop-nav {
+    display: none;
+  }
+
+  .mobile-header {
+    display: flex;
+  }
+
+  .mobile-nav {
+    display: block;
+  }
+}
