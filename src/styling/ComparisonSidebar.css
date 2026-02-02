@@ -1,0 +1,524 @@
+/* ComparisonSidebar.css - Professional White-Orange Theme with Mobile Toggle */
+
+/* Permanent Sidebar - Below Navbar (Desktop) */
+.comparison-sidebar-permanent {
+  position: fixed;
+  left: 0;
+  top: 122px; /* Height of navbar */
+  width: 350px;
+  height: calc(100vh - 64px);
+  background: var(--bg-white);
+  border-right: 1px solid var(--border-light);
+  box-shadow: var(--shadow-md);
+  z-index: 90;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  height:88vh;
+  /* margin-left: 2rem; */
+}
+
+/* Mobile Toggle Button - Hidden on Desktop */
+.mobile-sidebar-toggle {
+  display: none;
+}
+
+/* Mobile Close Button - Hidden on Desktop */
+.mobile-close-btn {
+  display: none;
+}
+
+/* Mobile Overlay - Hidden on Desktop */
+.mobile-sidebar-overlay {
+  display: none;
+}
+
+/* Header */
+.sidebar-header {
+  padding: 24px 20px;
+  background: linear-gradient(135deg, #fff7ed 0%, var(--bg-white) 100%);
+  border-bottom: 1px solid var(--border-light);
+  flex-shrink: 0;
+}
+
+.sidebar-title-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.sidebar-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin: 0;
+}
+
+.sidebar-count {
+  background: var(--primary-orange);
+  color: var(--bg-white);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  box-shadow: var(--shadow-sm);
+}
+
+.sidebar-subtitle {
+  font-size: 13px;
+  color: var(--text-light);
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Drop Zones Container */
+.drop-zones-container {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.drop-zones-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.drop-zones-container::-webkit-scrollbar-track {
+  background: var(--bg-light-gray);
+}
+
+.drop-zones-container::-webkit-scrollbar-thumb {
+  background: var(--border-medium);
+  border-radius: 3px;
+}
+
+.drop-zones-container::-webkit-scrollbar-thumb:hover {
+  background: var(--text-light);
+}
+
+/* Drop Zone */
+.drop-zone {
+  background: var(--bg-light-gray);
+  border: 2px dashed var(--border-medium);
+  border-radius: var(--radius-md);
+  min-height: 200px;
+  position: relative;
+  transition: border-color 0.2s ease;
+}
+
+.drop-zone.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.drop-zone.filled {
+  border-style: solid;
+  border-color: var(--primary-orange);
+  background: var(--bg-white);
+}
+
+/* Slot Number Badge */
+.slot-number {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  color: var(--bg-white);
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+  z-index: 2;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Empty Slot */
+.empty-slot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.empty-icon {
+  font-size: 48px;
+  color: var(--text-light);
+  margin-bottom: 12px;
+  opacity: 0.5;
+}
+
+.empty-text {
+  font-size: 14px;
+  color: var(--text-light);
+  font-weight: 500;
+  margin: 0;
+}
+
+/* Property Preview (Filled Slot) */
+.property-preview {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.preview-image {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+}
+
+.preview-image-placeholder {
+  width: 100%;
+  height: 120px;
+  background: linear-gradient(135deg, var(--primary-orange-light) 0%, var(--primary-orange) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+}
+
+.preview-content {
+  padding: 12px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.preview-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin: 0;
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.preview-location {
+  font-size: 12px;
+  color: var(--text-light);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.preview-price {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--primary-orange);
+  margin: 0;
+}
+
+.preview-stats {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: auto;
+}
+
+.preview-stats span {
+  font-size: 11px;
+  color: var(--text-medium);
+  background: var(--bg-light-gray);
+  padding: 3px 8px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+/* Remove Button */
+.remove-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(239, 68, 68, 0.9);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--bg-white);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  transition: background-color 0.2s ease;
+  z-index: 3;
+}
+
+.remove-btn:hover {
+  background: rgba(220, 38, 38, 1);
+}
+
+/* Sidebar Actions */
+.sidebar-actions {
+  padding: 20px;
+  background: var(--bg-white);
+  border-top: 1px solid var(--border-light);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.compare-btn {
+  width: 100%;
+  padding: 14px 20px;
+  background: var(--primary-orange);
+  color: var(--bg-white);
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background-color 0.2s ease;
+  box-shadow: var(--shadow-sm);
+}
+
+.compare-btn:hover {
+  background: var(--primary-orange-dark);
+}
+
+.btn-icon {
+  font-size: 18px;
+}
+
+.clear-btn {
+  width: 100%;
+  padding: 10px 20px;
+  background: transparent;
+  color: var(--text-medium);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.clear-btn:hover {
+  background: var(--bg-light-gray);
+  color: var(--text-dark);
+  border-color: var(--border-medium);
+}
+
+.sidebar-hint {
+  text-align: center;
+  padding: 12px;
+  background: #fff7ed;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--primary-orange-light);
+}
+
+.sidebar-hint p {
+  font-size: 13px;
+  color: var(--text-medium);
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .comparison-sidebar-permanent {
+    width: 280px;
+  }
+
+  .sidebar-header {
+    padding: 20px 16px;
+  }
+
+  .drop-zones-container {
+    padding: 16px;
+  }
+
+  .sidebar-actions {
+    padding: 16px;
+  }
+}
+
+/* Mobile View - Slide in from Right */
+@media (max-width: 768px) {
+  /* Hide sidebar by default on mobile */
+  .comparison-sidebar-permanent {
+    position: fixed;
+    left: auto;
+    right: 0;
+    top: 0;
+    width: 90%;
+    max-width: 380px;
+    height: 100vh;
+    transform: translateX(100%);
+    z-index: 1000;
+    border-right: none;
+    border-left: 1px solid var(--border-light);
+    box-shadow: -4px 0 24px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Show sidebar when mobile-open class is added */
+  .comparison-sidebar-permanent.mobile-open {
+    transform: translateX(0);
+  }
+
+  /* Mobile Toggle Button - Fixed in Bottom Right */
+  .mobile-sidebar-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--primary-orange);
+    border: none;
+    cursor: pointer;
+    box-shadow: var(--shadow-lg);
+    z-index: 999;
+    transition: background-color 0.2s ease;
+  }
+
+  .mobile-sidebar-toggle:hover {
+    background: var(--primary-orange-dark);
+  }
+
+  .mobile-sidebar-toggle:active {
+    transform: scale(0.95);
+  }
+
+  .toggle-icon {
+    font-size: 24px;
+    color: var(--bg-white);
+  }
+
+  .toggle-badge {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    background: #dc2626;
+    color: var(--bg-white);
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+    border: 2px solid var(--bg-white);
+  }
+
+  /* Mobile Overlay - Dark Background */
+  .mobile-sidebar-overlay {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    animation: fadeIn 0.3s ease;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  /* Mobile Close Button */
+  .mobile-close-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--bg-light-gray);
+    border: 1px solid var(--border-light);
+    color: var(--text-dark);
+    cursor: pointer;
+    font-size: 18px;
+    z-index: 10;
+    transition: all 0.2s ease;
+  }
+
+  .mobile-close-btn:hover {
+    background: var(--bg-medium-gray);
+    color: var(--text-dark);
+  }
+
+  /* Adjust header padding for close button */
+  .sidebar-header {
+    padding-top: 60px;
+  }
+
+  /* Vertical scroll for drop zones on mobile */
+  .drop-zones-container {
+    flex-direction: column;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  .drop-zone {
+    flex: 0 0 auto;
+    width: 100%;
+    min-height: 220px;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+  .comparison-sidebar-permanent {
+    width: 95%;
+  }
+
+  .mobile-sidebar-toggle {
+    bottom: 20px;
+    right: 20px;
+    width: 52px;
+    height: 52px;
+  }
+
+  .toggle-icon {
+    font-size: 22px;
+  }
+
+  .toggle-badge {
+    width: 22px;
+    height: 22px;
+    font-size: 11px;
+  }
+}

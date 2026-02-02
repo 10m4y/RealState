@@ -1,0 +1,341 @@
+/* PropertyCard.css - Original Styling + Compare Button */
+
+.property-card {
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    border: 2px solid transparent;
+    position: relative;
+}
+
+.property-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+    border-color: var(--primary);
+}
+
+/* Hot Card Styling */
+.hot-card {
+    height: 100%;
+    min-height: 400px;
+    display: flex; 
+    flex-direction: column;
+}
+
+.hot-card-image {
+    width: 100%;
+    /* Remove height: 100% and replace with flex */
+    flex: 1; 
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    /* optional: ensures image creates a box even if content is empty */
+    min-height: 100%;
+}
+
+.hot-card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.3) 0%,
+        rgba(0, 0, 0, 0.5) 50%,
+        rgba(0, 0, 0, 0.8) 100%
+    );
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.hot-badge {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: var(--gradient-primary);
+    color: var(--white);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 12px rgba(249, 115, 22, 0.4);
+}
+
+.hot-title {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--white);
+    margin: 0 0 12px 0;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.hot-location {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0 0 16px 0;
+}
+
+.hot-price {
+    font-size: 32px;
+    font-weight: 900;
+    color: var(--primary);
+    margin: 0 0 16px 0;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.hot-meta {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.hot-meta span {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.85);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 6px 14px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Normal Card Styling */
+.normal-card {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid var(--border-color);
+}
+
+.property-image {
+    width: 100%;
+    height: 240px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.image-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #636e72 0%, #2d3436 100%);
+}
+
+.placeholder-icon {
+    font-size: 64px;
+    opacity: 0.7;
+}
+
+.property-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.property-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+    line-height: 1.3;
+}
+
+.location {
+    font-size: 14px;
+    color: var(--text-tertiary);
+    margin: 0;
+}
+
+.price {
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--primary);
+    margin: 0;
+}
+
+.property-meta {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+}
+
+.property-meta span {
+    font-size: 13px;
+    color: var(--text-secondary);
+    background: var(--bg-secondary);
+    padding: 6px 12px;
+    border-radius: var(--radius-sm);
+}
+
+/* Card Actions */
+.card-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 12px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border-color);
+}
+
+.btn-edit-card,
+.btn-delete-card {
+    flex: 1;
+    padding: 10px 20px;
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+}
+
+.btn-edit-card {
+    background: var(--gradient-primary);
+    color: var(--white);
+}
+
+.btn-edit-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);
+}
+
+.btn-delete-card {
+    background: transparent;
+    color: var(--accent-red);
+    border: 1px solid var(--accent-red);
+}
+
+.btn-delete-card:hover {
+    background: var(--accent-red);
+    color: var(--white);
+}
+
+/* Compare Button - Normal Card */
+.compare-add-btn {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(12px);
+    color: var(--white);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 8px 16px;
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(10px);
+    z-index: 2;
+}
+
+.property-card:hover .compare-add-btn {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.compare-add-btn:hover {
+    background: var(--gradient-primary);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(249, 115, 22, 0.4);
+}
+
+/* Compare Button - Hot Card */
+.hot-compare-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.hot-compare-btn:hover {
+    background: var(--gradient-primary);
+    transform: scale(1.1);
+}
+
+.hot-compare-btn .compare-text {
+    display: none;
+}
+
+.compare-icon {
+    font-size: 18px;
+}
+
+.compare-text {
+    white-space: nowrap;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hot-card {
+        min-height: 350px;
+    }
+
+    .hot-title {
+        font-size: 24px;
+    }
+
+    .hot-price {
+        font-size: 28px;
+    }
+
+    .property-image {
+        height: 200px;
+    }
+
+    .property-content {
+        padding: 16px;
+    }
+
+    .property-title {
+        font-size: 18px;
+    }
+
+    .price {
+        font-size: 22px;
+    }
+
+    /* Show compare button on mobile */
+    .compare-add-btn {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 480px) {
+    .card-actions {
+        flex-direction: column;
+    }
+
+    .hot-meta {
+        gap: 12px;
+    }
+
+    .hot-meta span {
+        font-size: 13px;
+        padding: 5px 12px;
+    }
+}
