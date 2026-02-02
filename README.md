@@ -4,7 +4,7 @@ A full-featured Property Listing Web Application built with React, Supabase, and
 
 ## 🔗 Live Demo
 
-👉 Deployed on Vercel: [https://real-state-kappa-lovat.vercel.app](https://real-state-kappa-lovat.vercel.app)
+👉 Deployed on Vercel: [https://real-state-kappa-lovat.vercel.app](https://real-state-lemon-nine.vercel.app/)
 
 ## ✨ Features Overview
 
