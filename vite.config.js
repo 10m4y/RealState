@@ -21,6 +21,7 @@ export default defineConfig({
         background_color:"#ffffff",
         display:"standalone",
         start_url:"/",
+        scope:"/",
         icons: [
           {
             src: "/icon-192.png",
@@ -33,7 +34,30 @@ export default defineConfig({
             type: "image/png"
           }
         ]
+      },
+       workbox: {
+        runtimeCaching: [
+          {
+            // Cache Supabase property list API
+            urlPattern: /^https:\/\/.*\.supabase\.co\/rest\/v1\/properties.*/,
+
+            handler: "NetworkFirst",
+
+            options: {
+              cacheName: "supabase-properties-api",
+
+              expiration: {
+                maxEntries: 50,
+                maxAgeSeconds: 24 * 60 * 60 // 1 day
+              },
+
+              cacheableResponse: {
+                statuses: [0, 200]
+              }
+            }
+          }
+        ]
       }
     })
-  ],
+  ]
 });
