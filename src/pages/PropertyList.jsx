@@ -111,7 +111,7 @@ export default function PropertyList() {
   if (loading) {
     return (
       <>
-        <Navbar />
+        <Navbar userName={userName} />
         <div className="page-layout">
           <div className="main-content">
             <div className="loader-container">
@@ -127,7 +127,7 @@ export default function PropertyList() {
   if (error) {
     return (
       <>
-        <Navbar />
+        <Navbar userName={userName} />
         <div className="page-layout">
           <div className="main-content">
             <div className="error-container">
@@ -142,7 +142,7 @@ export default function PropertyList() {
 
   return (
     <>
-      <Navbar />
+      <Navbar userName={userName} />
       <div className="page-layout">
         {/* Comparison Sidebar with built-in toggle */}
         <ComparisonSidebar
