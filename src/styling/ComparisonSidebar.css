@@ -1,4 +1,4 @@
-/* ComparisonSidebar.css - Professional White-Orange Theme with Mobile Toggle */
+/* ComparisonSidebar.css - Professional White-Orange Theme with Mobile/Tablet Toggle */
 
 /* Permanent Sidebar - Below Navbar (Desktop) */
 .comparison-sidebar-permanent {
@@ -6,7 +6,7 @@
   left: 0;
   top: 122px; /* Height of navbar */
   width: 350px;
-  height: calc(100vh - 64px);
+  height: calc(100vh - 122px); /* FIXED: Full height minus navbar */
   background: var(--bg-white);
   border-right: 1px solid var(--border-light);
   box-shadow: var(--shadow-md);
@@ -15,8 +15,6 @@
   flex-direction: column;
   overflow: hidden;
   transition: transform 0.3s ease;
-  height:88vh;
-  /* margin-left: 2rem; */
 }
 
 /* Mobile Toggle Button - Hidden on Desktop */
@@ -342,69 +340,58 @@
   line-height: 1.4;
 }
 
-/* Responsive Design */
-@media (max-width: 1024px) {
-  .comparison-sidebar-permanent {
-    width: 280px;
-  }
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
 
-  .sidebar-header {
-    padding: 20px 16px;
-  }
-
-  .drop-zones-container {
-    padding: 16px;
-  }
-
-  .sidebar-actions {
-    padding: 16px;
-  }
-}
-
-/* Mobile View - Slide in from Right */
-@media (max-width: 768px) {
-  /* Hide sidebar by default on mobile */
+/* iPad and Tablets (< 1300px) - Show Toggle Button */
+@media (max-width: 1299px) {
+  /* FIXED: Hide sidebar by default, slide in from RIGHT - STARTS FROM MIDDLE HEIGHT */
   .comparison-sidebar-permanent {
     position: fixed;
     left: auto;
     right: 0;
-    top: 0;
-    width: 90%;
-    max-width: 380px;
-    height: 100vh;
-    transform: translateX(100%);
+    top: 50%; /* FIXED: Start from middle of screen */
+    transform: translate(100%, -50%); /* FIXED: Center vertically and hide to right */
+    width: 350px;
+    max-width: 85%;
+    height: 90vh; /* FIXED: 90% of viewport height for better appearance */
+    max-height: 700px; /* Limit max height */
     z-index: 1000;
     border-right: none;
     border-left: 1px solid var(--border-light);
     box-shadow: -4px 0 24px rgba(0, 0, 0, 0.2);
+    border-radius: 16px 0 0 16px; /* Rounded left corners */
   }
 
   /* Show sidebar when mobile-open class is added */
   .comparison-sidebar-permanent.mobile-open {
-    transform: translateX(0);
+    transform: translate(0, -50%); /* FIXED: Slide in while staying centered */
   }
 
-  /* Mobile Toggle Button - Fixed in Bottom Right */
+  /* Show toggle button on RIGHT side */
   .mobile-sidebar-toggle {
     display: flex;
     align-items: center;
     justify-content: center;
     position: fixed;
-    bottom: 24px;
-    right: 24px;
+    bottom: 40px;
+    left: auto;
+    right: 90px;
     width: 56px;
     height: 56px;
     border-radius: 50%;
     background: var(--primary-orange);
     border: none;
     cursor: pointer;
-    box-shadow: var(--shadow-lg);
+    box-shadow: 0 8px 20px rgba(249, 115, 22, 0.4);
     z-index: 999;
-    transition: background-color 0.2s ease;
+    transition: all 0.2s ease;
   }
 
   .mobile-sidebar-toggle:hover {
     background: var(--primary-orange-dark);
+    transform: scale(1.05);
   }
 
   .mobile-sidebar-toggle:active {
@@ -433,7 +420,7 @@
     border: 2px solid var(--bg-white);
   }
 
-  /* Mobile Overlay - Dark Background */
+  /* Show overlay when sidebar is open */
   .mobile-sidebar-overlay {
     display: block;
     position: fixed;
@@ -455,7 +442,7 @@
     }
   }
 
-  /* Mobile Close Button */
+  /* Show close button */
   .mobile-close-btn {
     display: flex;
     align-items: center;
@@ -484,6 +471,78 @@
   .sidebar-header {
     padding-top: 60px;
   }
+}
+
+/* Medium Desktop (1024px - 1299px) - Tablet Landscape */
+@media (min-width: 1024px) and (max-width: 1299px) {
+  .comparison-sidebar-permanent {
+    width: 340px;
+  }
+
+  .mobile-sidebar-toggle {
+    bottom: 36px;
+    right: 90px;
+  }
+}
+
+/* iPad Air Portrait & Similar Tablets (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .comparison-sidebar-permanent {
+    width: 360px;
+  }
+
+  .mobile-sidebar-toggle {
+    bottom: 32px;
+    right: 80px;
+    width: 54px;
+    height: 54px;
+  }
+
+  .toggle-icon {
+    font-size: 22px;
+  }
+}
+
+/* Mobile View (< 768px) - Full Width Sidebar */
+@media (max-width: 767px) {
+  /* FIXED: Full width sidebar slides from right on mobile - STARTS FROM MIDDLE */
+  .comparison-sidebar-permanent {
+    left: auto;
+    right: 0;
+    top: 50%; /* FIXED: Start from middle of screen */
+    transform: translate(100%, -50%); /* FIXED: Center vertically and hide to right */
+    width: 90%;
+    max-width: 380px;
+    height: 85vh; /* FIXED: 85% of viewport height for mobile */
+    max-height: 650px;
+    border-right: none;
+    border-left: 1px solid var(--border-light);
+    box-shadow: -4px 0 24px rgba(0, 0, 0, 0.2);
+    border-radius: 16px 0 0 16px; /* Rounded left corners */
+  }
+
+  .comparison-sidebar-permanent.mobile-open {
+    transform: translate(0, -50%); /* FIXED: Slide in while staying centered */
+  }
+
+  /* Move toggle button to bottom right on mobile */
+  .mobile-sidebar-toggle {
+    bottom: 100px;
+    left: auto;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+  }
+
+  .toggle-icon {
+    font-size: 22px;
+  }
+
+  .toggle-badge {
+    width: 22px;
+    height: 22px;
+    font-size: 11px;
+  }
 
   /* Vertical scroll for drop zones on mobile */
   .drop-zones-container {
@@ -506,19 +565,13 @@
   }
 
   .mobile-sidebar-toggle {
-    bottom: 20px;
-    right: 20px;
-    width: 52px;
-    height: 52px;
+    bottom: 100px;
+    right: 16px;
+    width: 48px;
+    height: 48px;
   }
 
   .toggle-icon {
-    font-size: 22px;
-  }
-
-  .toggle-badge {
-    width: 22px;
-    height: 22px;
-    font-size: 11px;
+    font-size: 20px;
   }
 }
