@@ -2,7 +2,7 @@
 
 :root {
   --primary-orange: #f97316;
-  --bg-dark-slate: #1e293b; /* New Dark Contrast Color */
+  --bg-dark-slate: #1e293b;
   --bg-darker: #0f172a;
   --text-white: #f9fafb;
   --text-gray-light: #9ca3af;
@@ -10,35 +10,53 @@
 }
 
 /* ===========================
-   Desktop Navbar (Dark Contrast)
+   Desktop Navbar (Dark Contrast) - FIXED POSITION
    =========================== */
+.background{
+  background-color: #ffffff;
+  width: 100vw;
+  height: 3vh;
+  /* position: fixed; */
+}
 .desktop-nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 80px;
-  /* Dark Slate Background for Contrast */
   background: var(--bg-dark-slate);
   backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 16px;
   padding: 0 32px;
-  margin: 20px 40px;
-  position: sticky;
-  top: 20px;
+  /* margin: 20px 40px; */
+  margin-top: 19px;
+  /* FIXED position - no scrolling away */
+  position: fixed;
+  /* top: 20px; */
+  left: 0;
+  right: 0;
   z-index: 100;
   box-shadow: var(--shadow-nav);
+  /* Ensure it doesn't extend beyond viewport */
+  max-width: calc(100% - 80px);
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.nav-left, .nav-right { flex: 1; }
-.nav-right { display: flex; justify-content: flex-end; }
+.nav-left, .nav-right { 
+  flex: 1; 
+}
+
+.nav-right { 
+  display: flex; 
+  justify-content: flex-end; 
+}
 
 .nav-center {
   display: flex;
   gap: 8px;
   align-items: center;
   justify-content: center;
-  /* Slightly darker pill inside the nav */
   background: rgba(0, 0, 0, 0.2);
   padding: 6px;
   border-radius: 12px;
@@ -51,7 +69,6 @@
   padding: 10px 20px;
   border-radius: 8px;
   text-decoration: none;
-  /* Light text for dark background */
   color: var(--text-gray-light);
   font-size: 15px;
   font-weight: 500;
@@ -89,7 +106,11 @@
   border: 2px solid rgba(255, 255, 255, 0.1);
 }
 
-.profile-image img { width: 100%; height: 100%; object-fit: cover; }
+.profile-image img { 
+  width: 100%; 
+  height: 100%; 
+  object-fit: cover; 
+}
 
 .profile-placeholder {
   color: white;
@@ -97,9 +118,21 @@
   font-weight: 700;
 }
 
-.user-info { display: flex; flex-direction: column; }
-.greeting { font-size: 12px; color: var(--text-gray-light); }
-.user-name { font-size: 15px; color: var(--text-white); font-weight: 700; }
+.user-info { 
+  display: flex; 
+  flex-direction: column; 
+}
+
+.greeting { 
+  font-size: 12px; 
+  color: var(--text-gray-light); 
+}
+
+.user-name { 
+  font-size: 15px; 
+  color: var(--text-white); 
+  font-weight: 700; 
+}
 
 /* Desktop Compare Button */
 .desktop-compare-btn {
@@ -107,7 +140,6 @@
   align-items: center;
   gap: 8px;
   text-decoration: none;
-  /* White text on dark button */
   color: var(--text-white);
   font-weight: 600;
   padding: 10px 20px;
@@ -122,27 +154,67 @@
 }
 
 /* ===========================
-   Mobile Header (Top) - Now Dark
+   Mobile Header (Top) - FIXED POSITION
    =========================== */
 .mobile-header {
-  display: none; /* Hidden on desktop */
+  display: none;
   justify-content: space-between;
   align-items: center;
   padding: 16px 20px;
-  /* Dark Background */
   background: var(--bg-dark-slate);
+  /* FIXED position - always at top */
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 90;
+  width: 100%;
+  height: 64px;
+  z-index: 100;
   box-shadow: 0 2px 10px rgba(0,0,0,0.2);
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 /* Adjust text inside mobile header */
-.mobile-header .user-name { color: white; }
-.mobile-header .greeting { color: #cbd5e1; }
+.mobile-header .user-name { 
+  color: white; 
+}
+
+.mobile-header .greeting { 
+  color: #cbd5e1; 
+}
+
+/* User Profile (Left) */
+.mobile-profile {
+  flex: 1;
+}
+
+/* Add Property Button (Top Right) */
+.mobile-header-add-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background-color: var(--primary-orange, #f97316); 
+  color: #ffffff;
+  padding: 6px 14px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
+  white-space: nowrap;
+}
+
+.mobile-header-add-btn:active {
+  transform: scale(0.96);
+  opacity: 0.9;
+}
+
+.plus-icon {
+  font-size: 18px;
+  line-height: 1;
+  font-weight: 400;
+}
 
 .mobile-compare-btn {
   text-decoration: none;
@@ -154,7 +226,7 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  color: white; /* Icon color */
+  color: white;
 }
 
 .badge {
@@ -175,10 +247,11 @@
 }
 
 /* ===========================
-   Mobile Navbar (Bottom)
+   Mobile Navbar (Bottom) - FIXED POSITION
    =========================== */
 .mobile-nav {
   display: none;
+  /* FIXED position at bottom */
   position: fixed;
   bottom: 24px;
   left: 50%;
@@ -193,7 +266,6 @@
   justify-content: center;
   gap: 8px;
   align-items: center;
-  /* Pure Black for maximum contrast at bottom */
   background: #000000;
   border-radius: 100px;
   padding: 6px;
@@ -240,70 +312,125 @@
 /* ===========================
    Responsive Queries
    =========================== */
-@media (max-width: 768px) {
-  .desktop-nav { display: none; }
-  .mobile-nav, .mobile-header { display: flex; }
-}
-.mobile-header {
-  display: none; /* Hidden on desktop */
-  justify-content: space-between;
-  align-items: center;
-  padding: 16px 20px;
+
+/* iPad Pro and Large Tablets (1024px and above) - Desktop Nav */
+@media (min-width: 1024px) {
+  .desktop-nav { 
+    display: flex; 
+  }
   
-  /* I removed background-color and border so it stays same as previous */
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 50;
-  height: 64px;
-}
-
-/* User Profile (Left) */
-.mobile-profile {
-  flex: 1;
-}
-
-/* Add Property Button (Top Right) */
-.mobile-header-add-btn {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  /* Using your primary orange */
-  background-color: var(--primary-orange, #f97316); 
-  color: #ffffff;
-  padding: 6px 14px;
-  border-radius: 20px;
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: 600;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  transition: transform 0.2s ease;
-  white-space: nowrap;
-}
-
-.mobile-header-add-btn:active {
-  transform: scale(0.96);
-  opacity: 0.9;
-}
-
-.plus-icon {
-  font-size: 18px;
-  line-height: 1;
-  font-weight: 400;
-}
-
-/* Mobile Display Logic */
-@media (max-width: 768px) {
-  .desktop-nav {
-    display: none;
+  .mobile-nav, 
+  .mobile-header { 
+    display: none; 
   }
+}
 
-  .mobile-header {
+/* FIXED: Asus Zenbook and Medium Tablets (768px - 1023px) - Mobile Nav with proper positioning */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .desktop-nav { 
+    display: none; 
+  }
+  
+  .mobile-header { 
     display: flex;
+    padding: 14px 24px; /* Better padding for medium screens */
   }
-
-  .mobile-nav {
+  
+  .mobile-nav { 
     display: block;
+    bottom: 20px; /* Slightly higher on tablets */
+    min-width: 320px; /* Wider on tablets */
+  }
+  
+  /* Better spacing for mobile header elements */
+  .mobile-header .user-profile {
+    gap: 10px;
+  }
+  
+  .mobile-header .profile-image {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .mobile-header-add-btn {
+    padding: 8px 16px;
+    font-size: 15px;
+  }
+}
+
+/* Mobile Phones (below 768px) - Mobile Nav */
+@media (max-width: 767px) {
+  .desktop-nav { 
+    display: none; 
+  }
+  
+  .mobile-header { 
+    display: flex; 
+  }
+  
+  .mobile-nav { 
+    display: block; 
+  }
+}
+
+/* Small Mobile Adjustments */
+@media (max-width: 480px) {
+  .mobile-header {
+    padding: 12px 16px;
+  }
+  
+  .mobile-header .profile-image {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .mobile-header .user-name {
+    font-size: 14px;
+  }
+  
+  .mobile-header .greeting {
+    font-size: 11px;
+  }
+  
+  .mobile-header-add-btn {
+    padding: 6px 12px;
+    font-size: 13px;
+  }
+  
+  .plus-icon {
+    font-size: 16px;
+  }
+  
+  .mobile-nav {
+    bottom: 16px;
+    min-width: 260px;
+  }
+  
+  .mobile-nav-item {
+    padding: 8px 14px;
+  }
+  
+  .mobile-nav-label {
+    font-size: 12px;
+  }
+}
+
+/* Very Small Mobile */
+@media (max-width: 360px) {
+  .mobile-header {
+    padding: 10px 12px;
+  }
+  
+  .mobile-header .user-name {
+    font-size: 13px;
+  }
+  
+  .mobile-header-add-btn {
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+  
+  .mobile-nav {
+    min-width: 240px;
   }
 }

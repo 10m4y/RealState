@@ -39,6 +39,7 @@ export default function PropertyCard({
         }
     }
 
+    // HOT CARD - Property image as background with overlay
     if (isHot) {
         return (
             <div 
@@ -116,15 +117,15 @@ export default function PropertyCard({
             <div className="property-content">
                 <h3 className="property-title">{property.title}</h3>
                 <p className="location">
-                    {property.location}
+                    📍 {property.location}
                 </p>
                 <p className="price">₹{property.price?.toLocaleString('en-IN')}</p>
                 
                 {property.bedroom && (
                     <div className="property-meta">
-                        <span>{property.bedroom} Beds</span>
-                        {property.bathroom && <span>{property.bathroom} Baths</span>}
-                        {property.area && <span>{property.area} sq.ft</span>}
+                        <span>🛏️ {property.bedroom} Bed{property.bedroom > 1 ? 's' : ''}</span>
+                        {property.bathroom && <span>🚿 {property.bathroom} Bath{property.bathroom > 1 ? 's' : ''}</span>}
+                        {property.area && <span>📐 {property.area} sq.ft</span>}
                     </div>
                 )}
 

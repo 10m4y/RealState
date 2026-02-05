@@ -19,6 +19,7 @@ export default function Navbar({ userName = "John Doe", userImage = null }) {
     return (
         <>
             {/* Desktop Navbar - Unchanged */}
+            <div className="background">
             <nav className="navbar desktop-nav">
                 <div className="nav-left">
                     <div className="user-profile">
@@ -100,6 +101,7 @@ export default function Navbar({ userName = "John Doe", userImage = null }) {
                     ))}
                 </div>
             </nav>
+            </div>
         </>
     );
 }
