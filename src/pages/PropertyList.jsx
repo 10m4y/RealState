@@ -179,7 +179,7 @@ export default function PropertyList() {
                   <div className="properties-section hot-section">
                     <div className="section-header">
                       <div>
-                        <h2 className="section-title">🔥 Latest</h2>
+                        <h2 className="section-titles">Latest</h2>
                       </div>
                     </div>
 
@@ -205,7 +205,7 @@ export default function PropertyList() {
                   <div className="properties-section">
                     <div className="section-header">
                       <div>
-                        <h2 className="section-title">Recommended For You</h2>
+                        <h2 className="section-titles">Recommended For You</h2>
                       </div>
                     </div>
 

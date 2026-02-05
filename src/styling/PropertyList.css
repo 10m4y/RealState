@@ -168,14 +168,9 @@ html, body {
   gap: 16px;
 }
 
-.section-title {
-  font-size: 24px;
-  font-weight: 700;
-  color: #000000;
-  margin-bottom: 4px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
+.section-titles {
+  font-size: 28px;
+  margin-top: 10px
 }
 
 .section-subtitle {
@@ -574,8 +569,8 @@ html, body {
     font-size: 26px;
   }
 
-  .section-title {
-    font-size: 19px;
+  .section-titles {
+    font-size: 24px;
   }
   
   .properties-section {
@@ -642,8 +637,8 @@ html, body {
     font-size: 24px;
   }
 
-  .section-title {
-    font-size: 18px;
+  .section-titles {
+    font-size: 22px;
   }
   
   .properties-section {
@@ -679,8 +674,9 @@ html, body {
     font-size: 22px;
   }
 
-  .section-title {
-    font-size: 17px;
+  .section-titles{
+    font-size: 20px;
+    margin-top: 10px;
   }
   
   .hot-slider-content > * {
